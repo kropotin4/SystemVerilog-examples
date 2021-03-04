@@ -1,6 +1,6 @@
 # SystemVerilog Examples
 
-Несколько тестовый примеров SystemVerilog кода для симулятора QuestaSim.
+Несколько тестовых примеров SystemVerilog кода для симулятора QuestaSim.
 
 Требования для запуска:
 1. Установленный и прописанный в PATH QuestaSim.
