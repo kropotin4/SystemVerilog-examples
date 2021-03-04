@@ -1,6 +1,6 @@
 /////////////////////////////
 //
-// Test example 1
+// Test example 2
 //
 // @brief Testbanch for add mudule
 //
@@ -70,10 +70,13 @@ module tb;
 
     //////////
 
+    // Function must return data + can't execute time operation
     function automatic data_t ref_add(input data_t arg1, data_t arg2, logic op_type);
         return op_type ? arg1 + arg2 : arg1 - arg2;
     endfunction
 
+    // No return like function -> output argument instead of return
+    // + can execute time operation
     task automatic check_case(input data_t arg1_, data_t arg2_, logic op_type_);
         data_t ref_res = ref_add(arg1_, arg2_, op_type_);
 
@@ -83,6 +86,7 @@ module tb;
 
         ##1;
 
+        // Assert check module and ref results
         assert(res == ref_res)
             $display("Success: %s(%0d, %0d)",
                     op_type_ ? "sum" : "sub",

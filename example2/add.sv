@@ -1,8 +1,8 @@
 /////////////////////////////
 //
-// Test example 1
+// Test example 2
 //
-// @brief Useless module for add/sub operation
+// @brief Useless module for add/sub operation. Divide logic to 2 part.
 //
 // @autor krt2019@yandex.ru
 //
