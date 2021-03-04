@@ -45,6 +45,7 @@ end
 
 Старайтесь делать always_ff минималистичным и избавленным от комбинаторной логики:
 
+```SystemVerilog
 always_ff @(posedge clk) begin
     if (condition_1)
         res <= a + b;
@@ -55,7 +56,9 @@ always_ff @(posedge clk) begin
     else
         res <= a / b;
 end
+```
 
+```SystemVerilog
 always_ff @(posedge clk) begin
     if (condition_1)
         res <= res_1;
@@ -66,16 +69,20 @@ always_ff @(posedge clk) begin
     else
         res <= res_4;
 end
+```
 
 Старайтесь не городить лес из if - не очень красиво, также старайтесь, чтобы каждый always_ff
 задавал только одну переменную:
 
+```SystemVerilog
 always_ff @(posedge clk) begin
     res1 <= a;
     res2 <= b;                      <= плохо
     res3 <= c;
 end
+```
 
+```SystemVerilog
 always_ff @(posedge clk)
     res1 <= a;
 
@@ -84,9 +91,28 @@ always_ff @(posedge clk)            <= так удобней
 
 always_ff @(posedge clk)
     res3 <= c;
+```
 
 ### Комбинаторная логика
 
 Комбинаторная логика - это, проще говоря, все логика, где нет синхронизации.
 
-a + b <= комбинаторная логика
+a + b           <= комбинаторная логика
+
+((a + b)*c/d)^2 <= тоже комбинаторная логика
+
+И всякая прочая рассчитываемая муть.
+
+Соответственно, комбинаторная логика пишиться через два блока:
+
+```SystemVerilog
+assign res = a + b              <= Удобная форма (без подводных камней) для любых простых выражений
+```
+
+Вторая, более общая форма, always_comb блок:
+
+```SystemVerilog
+always_comb begin
+    *** какая-то логика ***
+end
+```
