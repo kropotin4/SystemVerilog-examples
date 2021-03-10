@@ -1,0 +1,10 @@
+# Git ignore file
+
+# Files
+*.wlf
+transcript
+
+# Folders
+/work
+/example1/work
+/example2/work
