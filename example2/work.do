@@ -2,7 +2,8 @@ transcript on
 
 vlib work
 
-vlog -sv +incdir+./ ./add.sv
-vlog -sv +incdir+./ ./tb.sv
+vlog -sv +incdir+./ ./*.sv
 
 vsim -voptargs="+acc" tb
+
+run -all
