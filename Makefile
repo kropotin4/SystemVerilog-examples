@@ -6,7 +6,8 @@ usage:
 		@echo "Usage:"
 		@echo "run-ex1   - run example 1"
 		@echo "run-ex2   - run example 2"
-		@echo "clean-all - clean temp files"
+		@echo "clean     - clean temp files"
+		@echo "clean-all - clean temp files in all directories"
 
 
 run-ex1:
@@ -17,6 +18,12 @@ run-ex2:
 		cd example2/ && questasim -do work.do
 
 
-clean-all:
+clean:
 		rm -rf *.wlf transcript
 		rm -rf work/
+
+
+clean-all:
+		make clean
+		cd example1/ && make clean
+		cd example2/ && make clean
