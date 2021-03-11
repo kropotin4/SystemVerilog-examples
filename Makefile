@@ -30,3 +30,4 @@ clean-all:
 		make clean
 		cd example1/ && make clean
 		cd example2/ && make clean
+		cd example3/ && make clean
