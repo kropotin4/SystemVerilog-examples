@@ -115,6 +115,8 @@ module alu_lite #(
     end
 
 
+    // If processor frequency high and alu "speed" low, we can split alu work into 2 cycle
+    // -> so, in other words, in the end of alu we say stop and continue to work in the next cycle
     if (N_CYCLE == '1) begin
         always_ff @(posedge clk)
             res <= result;
