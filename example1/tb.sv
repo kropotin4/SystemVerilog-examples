@@ -11,9 +11,9 @@
 
 module tb;
 
-    parameter DATA_WIDTH = 32;
+    parameter int DATA_WIDTH = 32;
 
-    parameter CLK_FREQ = 100;
+    parameter int CLK_FREQ = 100;
 
 
     typedef logic[DATA_WIDTH-1:0] data_t;
